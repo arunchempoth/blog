@@ -56,6 +56,10 @@
 												<span>{{page.date | date: "%a, %b %d, %y" }}</span>
 											</li>
 											<li>
+												<i class='ion-ios-clock' ></i>
+												<span>{{page.readtime }} mins</span>
+											</li>
+											<li>
 												<i class='ion-ios-pricetag' ></i>
 												<span>{{ page.categories | array_to_sentence_string | capitalize | replace: '-',' '   }}</span>
 											</li>
