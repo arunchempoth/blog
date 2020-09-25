@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class='no-js'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{{site.title}} | Blogs | {{ page.tag | capitalize | replace: '-',' ' }}</title>
+    <!--[if lt IE 9]>
+		  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <link rel='stylesheet' type='text/css' href='/bootstrap/css/bootstrap.min.css'>
+    <link rel='stylesheet' type='text/css' href='/css/ionicons.min.css'>
+    <link rel='stylesheet' type='text/css' href='/css/owl.carousel.css'>
+    <link rel='stylesheet' type='text/css' href='/css/owl.theme.css'>
+    <link rel='stylesheet' type='text/css' href='/css/owl.transitions.css'>
+    <link rel='stylesheet' type='text/css' href='/css/magnific-popup.css'>
+    <link rel='stylesheet' type='text/css' href='/css/style.css'>
+    <link rel='stylesheet' type='text/css' href='/css/color-default.css'>
+</head>
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div id='wrapper'>
+        <section class='blog-section section' style="opacity:1; visibility:visible;">
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-md-6 col-md-offset-3'>
+                        <div class='section-header text-center'>
+                            <h2>{{ page.tag | capitalize | replace: '-',' ' }}</h2>
+                            <!--divider-->
+                            <div class='divider-draft center'></div>
+                            <!--/divider-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='posts-block section-block'>
+                <div class='container'>
+                    <div class='row'>
+                        <div class='col-md-8'>
+                            <!-- This loops through the paginated posts -->
+                            {% for post in site.categories[page.tag] %}
+                            <div class='post'>
+                                <div class='media'>
+                                    <img alt='symp' src='{{ post.image }}'>
+                                </div>
+                                <div class='content'>
+                                    <h4>
+                                        <a href='{{ post.url }}'>
+                                            {{ post.title }}
+                                        </a>
+                                    </h4>
+                                    <ul class='post-icons'>
+                                        <li>
+                                            <i class='ion-ios-person'></i>
+                                            <span>{{ post.author }}</span>
+                                        </li>
+                                        <li>
+                                            <i class='ion-ios-clock'></i>
+                                            <span>{{ post.date }}</span>
+                                        </li>
+                                    </ul>
+                                    {{ post.content | strip_html | truncatewords:40 }}
+                                    <a href='{{ post.url }}' class='read-more'>
+                                        Read More
+                                        <i class='ion-ios-arrow-thin-right'></i>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class='col-md-4'>
+                            <div class='sidebar'>
+                                <div class='sidebar-widget'>
+                                    {% include categories.html %}
+                                </div>
+                                <div class='sidebar-widget'>
+                                    <div class='widget-header'>
+                                        <h4>
+                                            <i class='ion-document'></i>
+                                            Recent Posts
+                                        </h4>
+                                    </div>
+                                    <ul class='sidebar-list'>
+                                        {% for post in site.posts limit:4 %}
+                                        <li>
+                                            <a href='{{ post.url }}'>
+                                                {{ post.title }}. {{ post.content | strip_html | truncatewords:20 }}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='footer bg-lightgray section-block'>
+                <div class='container'>
+                    <div class='row'>
+                        <div class='col-xs-6 text-left'>
+                            <h4>Johny Doe</h4>
+                        </div>
+                        <div class='col-xs-6 text-right'>
+                            <ul class='footer-social'>
+                                <li>
+                                    <a href='/#'>
+                                        <i class='ion-social-facebook'></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='/#'>
+                                        <i class='ion-social-twitter'></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='/#'>
+                                        <i class='ion-social-pinterest'></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='/#'>
+                                        <i class='ion-social-dribbble'></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--=============================================================================
+			/Main Wrapper
+		===============================================================================-->
+    <!--=============================================================================
+			JavaScript Files
+		===============================================================================-->
+    <script src='/js/jquery.min.js'></script>
+    <script src='/js/jquery.stellar.min.js'></script>
+    <script src='/js/modernizr.js'></script>
+    <script src='/js/owl.carousel.min.js'></script>
+    <script src='/js/jquery.shuffle.min.js'></script>
+    <script src='/js/jquery.magnific-popup.min.js'></script>
+    <script src='/js/validator.min.js'></script>
+    <script src='/js/smoothscroll.js'></script>
+    <script src='/js/script.js'></script>
+</body>
+</html>

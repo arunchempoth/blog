@@ -1,0 +1,15 @@
+<div class='categories-widget' >
+    <div class='widget-header' >
+        <h4>
+            <i class='ion-ios-folder' ></i> Categories
+        </h4>
+    </div>
+    <ul class='sidebar-list' >
+        {% for category in site.categories %}
+        {% capture category_name %}{{ category | first }}{% endcapture %}
+        <li>
+            <a href='/blog/{{category_name | slugify}}' >{{category_name | capitalize | replace: '-',' '}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
